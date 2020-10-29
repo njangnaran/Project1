@@ -1,0 +1,330 @@
+/* Animaton */
+/* margin-top: -1.5em;  위에적은 ling-height를 30px로 정했기 때문에 하니씩 줄이면 다음 요소가 라인에 맞음 */
+@keyframes rolling {
+  /* 위에 설정한것에 대한 범위(0% ~ 100%)를 설정해준것 */
+  /* transform: translateY - 자기를 기준으로 X또는Y축으로 % 만큼 이동하는것 */
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-20%);
+  }
+
+  50% {
+    transform: translateY(-40%);
+  }
+
+  75% {
+    transform: translateY(-60%);
+  }
+
+  100% {
+    transform: translateY(-80%);
+  }
+}
+body {
+  font-family: "Jua", sans-serif;
+}
+/* CSS reset */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+dl,
+dd,
+a,
+h5 {
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+a {
+  color: wheat;
+  text-decoration: none;
+}
+
+body {
+  background-color: #111;
+  color: #999;
+}
+p {
+  word-break: keep-all;
+}
+.portrait {
+  background-image: url(/portfolio/images/IM.jpg);
+  background-size: cover; /* 창의 크기를 조절해도 이미지의 비율이 그대로 유지됨*/
+  background-position: center;
+  padding-top: 56.25%; /* 16 : 9 비율 */
+}
+
+.profile {
+  padding: 5%;
+  min-height: 5000px;
+}
+
+.profile-header,
+.profile-section {
+  padding-bottom: 10%;
+}
+.profile-section1 {
+  padding-bottom: 10%;
+}
+h2 {
+  border-top: 3px solid;
+  color: orangered;
+  margin-bottom: 20px;
+  padding: 0.5em 0;
+  position: sticky;
+  top: 0;
+  background-color: #111111;
+  box-shadow: 0 0 50px 10px #111111;
+  font-size: 25px;
+}
+
+.name {
+  font-size: 30px;
+  line-height: 1.5; /* name안에 요소들의 간격을 위에 적은 font-size기준으로 만든다. */
+  font-style: italic;
+  margin-bottom: 20px;
+  font-family: "Jua", sans-serif;
+  margin-bottom: 40px;
+  position: sticky; /* 부모요소의 height만큼 skicky가 된다. */
+  top: 0px;
+  background-color: #111111;
+  box-shadow: 0 0 50px 10px #111;
+}
+
+.name-job {
+  display: inline-block;
+  color: white;
+  vertical-align: top;
+  height: 1.5em;
+  overflow: hidden; /* 넘치는 요소들을 잘라 없애준다. */
+  padding-right: 0.5em;
+  box-shadow: inset 0 0 50px #111111; /* 그림자를 글자 위에 덮어서 글자 배경과 같은 색으로 처리 */
+  position: relative;
+}
+
+.name-job::after {
+  margin-left: -1em;
+  content: " ";
+  box-shadow: inset 0 0 10px 10px #111; /* box-shadow : inset - 박스 안에 적용  0 - x축 , 0 - y축 , 10px - 흐리게 뿌옇게 10px - 진한 정도*/
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.name-job-list {
+  animation-name: rolling;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+
+.name-title {
+  font-size: 1.5em;
+  line-height: 0.7;
+  color: #ff5a5f;
+  margin-left: -0.1em;
+  position: relative; /* z-index와 비슷헌 효과  : position요소중 static이 아닌것들은 이것을 쓰면 화면에서 먼저 위에 올려져 있는다.*/
+  width: max-content;
+}
+
+.icons {
+  margin: 10px 0;
+}
+
+.icons i {
+  font-size: 1em;
+}
+
+.icons a.twitter {
+  background-position: left top;
+}
+
+.icons a.facebook {
+  background-position: center top;
+}
+
+.icons a.youtube {
+  background-position: right top;
+}
+
+.icons a:hover {
+  background-position-y: bottom;
+}
+
+.timeline {
+  font-size: 0.9rem; /* html에 기본적인 폰트(16pt)를 기준으로 폰트 크기를 정한다. */
+  color: #666666;
+}
+
+.timeline li {
+  padding-bottom: 30px;
+}
+
+.timeline li:last-child {
+  /* timeline의 li컨텐츠 안에 들어있는것들 컨트롤 */
+  padding-bottom: 0px;
+}
+
+.timeline li h3 {
+  color: orange;
+  float: left;
+  font-size: 1rem;
+  letter-spacing: 0.2em; /* 단어마다 띄어쓰기 */
+  padding-top: 0.2em;
+  margin-right: 0.5em;
+  margin-top: 0.2em;
+  border-top: 3px solid;
+}
+
+.graph li {
+  background-color: dodgerblue;
+  background: linear-gradient(
+    90deg,
+    rgba(104, 97, 232, 1) 0%,
+    rgba(190, 0, 255, 1) 100%
+  );
+  color: white;
+  padding: 0.5em 1em;
+  margin: 0.4em 0;
+  border-radius: 30px;
+  box-sizing: border-box; /* 부모태크에 이미 padding margin값을 넣어서 box-sizing으로 padding margin의 값을들 포함시킨다. */
+  font-size: large;
+}
+
+.graph li::before {
+  /* .li 전 또는 후에 content의 문자를 추가한다. */
+  content: attr(
+    data-score
+  ); /* li에 적용시킨 data-score의 값을 가져와서 문자를 추가한다. */
+  float: right;
+}
+
+.graph li[data-score="상"] {
+  /* graph의 li중에 data-score이 50%인 li를 다룬다. */
+  width: 100%;
+}
+
+.graph li[data-score="중상"] {
+  /* graph의 li중에 data-score이 50%인 li를 다룬다. */
+  width: 90%;
+}
+
+.graph li[data-score="중"] {
+  /* graph의 li중에 data-score이 50%인 li를 다룬다. */
+  width: 80%;
+}
+
+.graph li[data-score="60%"] {
+  /* graph의 li중에 data-score이 50%인 li를 다룬다. */
+  width: 60%;
+}
+
+.graph li[data-score="50%"] {
+  /* graph의 li중에 data-score이 50%인 li를 다룬다. */
+  width: 50%;
+}
+
+.moresite {
+  color: #666;
+}
+.more h2 {
+  border-top: 3px solid;
+  color: orangered;
+  margin-bottom: 20px;
+  padding: 0.5em 0;
+  position: sticky;
+  top: 0;
+  background-color: #111111;
+  box-shadow: 0 0 50px 10px #111111;
+  font-size: 25px;
+}
+.moresite li h3 {
+  color: orange;
+  font-size: 1rem;
+  letter-spacing: 0.2em; /* 단어마다 띄어쓰기 */
+  padding-top: 0.2em;
+  margin-right: 0.5em;
+  margin-top: 0.2em;
+  margin-bottom: 2.5em;
+  border-top: 3px solid;
+  width: 100%;
+}
+.moresite li {
+  padding-bottom: 5%;
+}
+.moresite a {
+  color: wheat;
+}
+.list dt {
+  color: orange;
+  float: left;
+  width: 4em;
+}
+.list dd {
+  overflow: hidden;
+}
+.profile-section2 {
+  word-break: keep-all;
+}
+
+/* 모바일사이즈를 기준으로 먼저 작업한 반응형 */
+@media (min-width: 768px) {
+  .portrait {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50vw; /* viewport(기존 이미지의 크기) 기준으로 50% width를 가져와라 */
+    height: 100vh; /* viewport(기존 이미지의 크기) 기준으로 100% height를 가져와라 */
+    padding: 0px;
+  }
+  .profile {
+    margin-left: 50vw;
+  }
+  .timeline {
+    margin: 0 -10px;
+  }
+  .timeline li {
+    width: 50%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .timeline li:nth-child(even) {
+    /* timeline의 li중 홀수인것들은 왼쪽으로 붙는다. 지그재그 효과가 나타남*/
+    margin-left: auto;
+    margin-top: -40px;
+    margin-bottom: -20px;
+  }
+  .profile-section1 {
+    padding-bottom: 50%;
+  }
+}
+@media screen and(max-width:1200px) {
+  .profile-section1 {
+    padding-bottom: 10%;
+  }
+}
+@media (min-width: 1200px) {
+  .timeline li {
+    font-size: 1em;
+  }
+}
