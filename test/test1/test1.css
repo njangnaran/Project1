@@ -1,0 +1,488 @@
+@keyframes rolling {
+  /* 위에 설정한것에 대한 범위(0% ~ 100%)를 설정해준것 */
+  /* transform: translateY - 자기를 기준으로 X또는Y축으로 % 만큼 이동하는것 */
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-16.6%);
+  }
+
+  40% {
+    transform: translateY(-33.2%);
+  }
+
+  60% {
+    transform: translateY(-49.8%);
+  }
+
+  80% {
+    transform: translateY(-66.4%);
+  }
+  100% {
+    transform: translateY(-83%);
+  }
+}
+body,
+a,
+ul,
+li,
+footer {
+  font-family: "Gothic A1", sans-serif;
+  margin: 0%;
+  padding: 0%;
+}
+body {
+  margin-bottom: 3%;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+  width: auto;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgb(235, 222, 222);
+  background-color: #eec6b2;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: auto;
+}
+.change {
+  display: none;
+}
+.navbar_logo {
+  font-size: 24px;
+  color: white;
+}
+
+.navbar_logo i {
+  color: #330000;
+}
+.navbar_menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0%;
+}
+.navbar_menu li {
+  padding: 8px 12px;
+}
+.navbar_menu li:hover {
+  background-color: #ff5a5f;
+  border-radius: 50px;
+}
+.navbar_icons {
+  list-style: none;
+  color: black;
+  display: flex;
+  padding-left: 0%;
+  font-size: 20px;
+}
+.navbar_icons i {
+  padding: 8px 12px;
+}
+.navbar_toggleBtn {
+  position: absolute;
+  right: 32px;
+  font-size: 24px;
+  color: black;
+  display: none;
+}
+
+.submenu1 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 900;
+}
+
+/* 팝업창 */
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 900;
+  margin-top: 84px;
+  display: none;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup {
+  position: fixed;
+  width: 100%;
+  margin-right: 100%;
+  background: white;
+}
+.popup:target {
+  visibility: visible;
+  opacity: 1;
+}
+.popup-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+}
+.popup .close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding-right: 20px;
+  color: #000;
+  transition: color 0.3s;
+  font-size: 2.5em;
+  line-height: 0.6em;
+  font-weight: bold;
+}
+.popup .close:hover {
+  color: red;
+}
+.pop01submenu {
+  display: flexbox;
+}
+.pop01list > a:hover {
+  text-decoration: underline;
+}
+.pop01list {
+  padding-top: 0.5%;
+  font-size: 1.5em;
+}
+.pop01list li {
+  padding-bottom: 12%;
+}
+.pop01img {
+  display: none;
+}
+.maintitle {
+  background-image: url(/portfolio/images/sect3back.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: auto;
+  text-align: center;
+}
+.main {
+  font-size: 30px;
+  line-height: 1.5; /* name안에 요소들의 간격을 위에 적은 font-size기준으로 만든다. */
+  font-style: italic;
+  margin-bottom: 20px;
+  font-family: "Jua", sans-serif;
+  margin-bottom: 40px;
+  position: sticky; /* 부모요소의 height만큼 skicky가 된다. */
+  top: 0px;
+  color: wheat;
+  padding: 10% 0%;
+}
+.maintitle1 {
+  display: inline-block;
+  color: wheat;
+  vertical-align: top;
+  height: 1.5em;
+  overflow: hidden; /* 넘치는 요소들을 잘라 없애준다. */
+  padding-right: 0.5em;
+  position: relative;
+}
+.maintitle1::after {
+  margin-left: -1em;
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.maintitle2 {
+  animation-name: rolling;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+}
+.name-title {
+  font-size: 1.2em;
+  color: #ff5a5f;
+  margin-left: -5%;
+}
+.slideshow-container {
+  justify-content: center;
+  display: flex;
+  padding-top: 3%;
+  padding-bottom: 2%;
+}
+.slidertext {
+  margin-top: 1%;
+  position: relative;
+  top: 16%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  color: black;
+  z-index: 1000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.sect1 {
+  text-align: center;
+  background-color: rgb(245, 233, 218);
+  border: 1px solid rgb(245, 233, 218);
+  border-radius: 20px;
+  margin: 3%;
+}
+.sect1 ul {
+  padding: 8px 0;
+}
+.sect1 li {
+  padding: 8px 12px;
+}
+.sect1 li:hover {
+  background-color: #e7a6a7;
+  border-radius: 50px;
+  padding: 8px 1px;
+}
+.sect2 {
+  background-image: url(/portfolio/images/samsung.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 3%;
+}
+.sect2title {
+  padding: 3%;
+  text-align: center;
+  font-size: 1.5em;
+  color: wheat;
+  font-weight: bolder;
+}
+.sect2img {
+  justify-content: center;
+  display: block;
+  margin: 0% 11%;
+  position: relative;
+  text-align: center;
+  background-size: cover;
+  word-break: keep-all;
+}
+.sect2img img {
+  border: 3px solid black;
+  border-radius: 30px;
+}
+.slidertext1 {
+  margin-top: 1%;
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  z-index: 1000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+.sect3 {
+  background-image: url(/portfolio/images/sect4back.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 3%;
+}
+.sect4 {
+  background-image: url(/portfolio/images/sect3back1.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.footer {
+  background-color: rgb(206, 199, 199);
+  margin-top: 3%;
+  text-align: center;
+  align-items: center;
+  padding: 3%;
+}
+@media (min-width: 768px) {
+  .overlay {
+    display: flex;
+  }
+  .pop01list li {
+    padding-bottom: 5%;
+  }
+  .pop01submenu {
+    display: flex;
+  }
+  .pop01img {
+    display: block;
+  }
+  .slidertext {
+    margin-top: 1%;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: black;
+    z-index: 1000;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .slideshow-container {
+    justify-content: center;
+    display: block;
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+    text-align: center;
+    background-size: cover;
+    word-break: keep-all;
+  }
+  /* The dots/bullets/indicators */
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  .active {
+    background-color: #eec6b2;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .sect1 {
+    font-size: 1.2em;
+  }
+  .sect1 ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+  .sect1 li {
+    padding: 8px 12px;
+  }
+  .sect2 {
+    display: flex;
+  }
+  .sect2 {
+    display: block;
+  }
+  .sect2-1,
+  .sect2img {
+    display: flex;
+  }
+  .sect2-2 {
+    display: flex;
+  }
+  .slidertext1 {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 24px;
+  }
+  .navbar_menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
+  .navbar_menu li {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar_icons {
+    display: none;
+    justify-content: center;
+    width: 100%;
+  }
+  .navbar_toggleBtn {
+    display: block;
+  }
+
+  .navbar_menu.active,
+  .navbar_icons.active {
+    display: flex;
+  }
+  .overlay {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .slidertext1 {
+    display: block;
+    margin-top: 1%;
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    z-index: 1000;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+@media (min-width: 1200px) {
+}
+@media (min-width: 1600px) {
+  body {
+    justify-content: center;
+    margin: 0 5%;
+  }
+  .navbar_logo {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .navbar_menu {
+    font-size: 25px;
+  }
+  .slidertext1 {
+    font-size: 2em;
+  }
+}
